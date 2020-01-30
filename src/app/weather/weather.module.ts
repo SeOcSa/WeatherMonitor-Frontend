@@ -4,15 +4,18 @@ import { WeatherPanelComponent } from './weather-panel/weather-panel.component';
 import { WeatherSearchComponent } from './weather-search/weather-search.component';
 import {FormsModule} from "@angular/forms";
 import {AgmCoreModule} from "@agm/core";
+import {HttpClientModule} from "@angular/common/http";
+import { WeatherHistoryPanelComponent } from './weather-history-panel/weather-history-panel.component';
 
 
 
 @NgModule({
-    declarations: [WeatherPanelComponent, WeatherSearchComponent],
+    declarations: [WeatherPanelComponent, WeatherSearchComponent, WeatherHistoryPanelComponent],
     exports: [
         WeatherPanelComponent
     ],
   imports: [
+    HttpClientModule,
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({

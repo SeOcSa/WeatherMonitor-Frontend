@@ -6,9 +6,9 @@
 <!--        <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" #search placeholder="Type city here" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">-->
 <!--      </div>-->
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Type city here" aria-label="Recipient's username" aria-describedby="intputSearch">
+        <input type="text" class="form-control" (input)="onTypeHandler($event)" placeholder="Type city here" aria-label="Recipient's username" aria-describedby="intputSearch">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary fa fa-search" type="button" id="search"></button>
+          <button class="btn btn-outline-secondary fa fa-search" type="button" id="search" (click)="onClickHandler()"></button>
         </div>
       </div>
     </div>

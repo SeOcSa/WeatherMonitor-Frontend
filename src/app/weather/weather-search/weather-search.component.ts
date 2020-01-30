@@ -1,5 +1,7 @@
 import {Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
 import {MapsAPILoader} from "@agm/core";
+import {WeatherService} from "../services/weather.service";
+import {WeatherModel} from "../models/weather.model";
 
 @Component({
   selector: 'app-weather-search',
@@ -8,15 +10,29 @@ import {MapsAPILoader} from "@agm/core";
 })
 export class WeatherSearchComponent implements OnInit {
   //TODO: use googleMaps places
-  // cityName: string;
+  cityName: string;
+  weatherModel: WeatherModel;
   // @ViewChild('search', null)
   // public searchElementRef: ElementRef;
 
-  constructor(private ngZone: NgZone, private mapsAPILoader: MapsAPILoader) {
+  constructor(private ngZone: NgZone, private mapsAPILoader: MapsAPILoader, private weatherService: WeatherService) {
   }
 
   ngOnInit() {
     // this.getPlaceAutocomplete();
+  }
+
+  public async onClickHandler() {
+    await this.weatherService.getWeatherForCity(this.cityName).then(result => this.weatherModel = result).catch((error) => {
+      console.log(error)
+    });
+
+    console.log(this.weatherModel);
+  }
+
+  public onTypeHandler(event) {
+    const cityName = event.target.value;
+    this.cityName = cityName;
   }
 
   // private getPlaceAutocomplete() {
