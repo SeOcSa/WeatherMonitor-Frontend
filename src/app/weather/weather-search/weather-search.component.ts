@@ -26,8 +26,6 @@ export class WeatherSearchComponent implements OnInit {
     await this.weatherService.getWeatherForCity(this.cityName).then(result => this.weatherModel = result).catch((error) => {
       console.log(error)
     });
-
-    console.log(this.weatherModel);
   }
 
   public onTypeHandler(event) {

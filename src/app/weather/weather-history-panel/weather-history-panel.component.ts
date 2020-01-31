@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {WeatherModel} from "../models/weather.model";
+import {WeatherService} from "../services/weather.service";
 
 @Component({
   selector: 'app-weather-history-panel',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherHistoryPanelComponent implements OnInit {
 
-  constructor() { }
+  weatherHistory: WeatherModel[] = [];
 
-  ngOnInit() {
+  constructor(private weatherService: WeatherService) {
+  }
+
+  async ngOnInit() {
+    await this.weatherService.getWeatherForecastHistory().then(result => {
+      console.log(result)
+      result.map(x => this.weatherHistory.push(x))
+    }).catch(error => {
+      console.log(error);
+    });
+    console.log(this.weatherHistory);
   }
 
 }

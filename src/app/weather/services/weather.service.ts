@@ -33,7 +33,15 @@ export class WeatherService {
     return this.http.get(url).pipe(catchError(this.handleError)) as Observable<WeatherModel>;
   }
 
+  private fetchWeatherForecastHistory() {
+    const url = `${this.getApiUrl()}weather/GetWeatherForecastHistory`;
+    return this.http.get(url).pipe(catchError(this.handleError)) as Observable<WeatherModel[]>;
+  }
+
   public getWeatherForCity(city: string) {
     return this.fetchWeather(city).toPromise();
+  }
+  public getWeatherForecastHistory() {
+    return this.fetchWeatherForecastHistory().toPromise();
   }
 }
