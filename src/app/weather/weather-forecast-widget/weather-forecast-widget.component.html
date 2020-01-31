@@ -1,0 +1,37 @@
+<div class="wrapper" *ngIf="weatherDetails">
+  <div class="widget-container">
+    <div class="top-left">
+      <h1 class="city" id="city">{{weatherDetails.cityName}}, {{weatherDetails.country}}</h1>
+      <h2 id="day">{{weatherDetails.day}}</h2>
+      <h3 id="date">{{weatherDetails.month}}, {{weatherDetails.year}}</h3>
+      <h3 id="time">{{weatherDetails.time}}</h3>
+      <p class="geo"></p>
+    </div>
+    <div class="top-right">
+      <h1 id="weather-status"></h1>
+      <img class="weather-icon" src="{{link}}">
+    </div>
+    <div class="horizontal-half-divider"></div>
+    <div class="bottom-left">
+      <h1 id="temperature">{{weatherDetails.temperature}}</h1>
+      <h2 id="celsius">&#176;C</h2>
+    </div>
+    <div class="vertical-half-divider"></div>
+    <div class="bottom-right">
+      <div class="other-details-key">
+        <p>Wind Speed</p>
+        <p>Humidity</p>
+        <p>Pressure</p>
+        <p>Sunrise Time</p>
+        <p>Sunset Time</p>
+      </div>
+      <div class="other-details-values">
+        <p class="windspeed">{{weatherDetails.windSpeed}} Km/h</p>
+        <p class="humidity">{{weatherDetails.humidity}} %</p>
+        <p class="pressure">{{weatherDetails.pressure}} hPa</p>
+        <p class="sunrise-time">{{weatherDetails.sunrise}}</p>
+        <p class="sunset-time">{{weatherDetails.sunset}}</p>
+      </div>
+    </div>
+  </div>
+</div>

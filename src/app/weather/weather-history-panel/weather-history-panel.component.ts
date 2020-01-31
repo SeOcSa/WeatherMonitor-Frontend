@@ -16,12 +16,9 @@ export class WeatherHistoryPanelComponent implements OnInit {
 
   async ngOnInit() {
     await this.weatherService.getWeatherForecastHistory().then(result => {
-      console.log(result)
       result.map(x => this.weatherHistory.push(x))
     }).catch(error => {
       console.log(error);
     });
-    console.log(this.weatherHistory);
   }
-
 }

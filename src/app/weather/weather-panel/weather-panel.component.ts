@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {WeatherModel} from "../models/weather.model";
 
 @Component({
   selector: 'app-weather-panel',
@@ -7,9 +8,17 @@ import {Component, OnInit} from '@angular/core';
 })
 export class WeatherPanelComponent implements OnInit {
 
+  weatherForecast: WeatherModel;
+  link: string;
   constructor() { }
 
   ngOnInit() {
 
   }
+
+  onSearch(weatherForecast : WeatherModel){
+    this.weatherForecast = weatherForecast;
+    this.link = 'http://openweathermap.org/img/wn/' + this.weatherForecast.weatherConditionIcon + '@2x.png';
+  }
+
 }

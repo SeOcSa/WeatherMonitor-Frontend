@@ -1,4 +1,4 @@
-import {Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, NgZone, OnInit, Output} from '@angular/core';
 import {MapsAPILoader} from "@agm/core";
 import {WeatherService} from "../services/weather.service";
 import {WeatherModel} from "../models/weather.model";
@@ -11,7 +11,8 @@ import {WeatherModel} from "../models/weather.model";
 export class WeatherSearchComponent implements OnInit {
   //TODO: use googleMaps places
   cityName: string;
-  weatherModel: WeatherModel;
+  weatherForecastEntity: WeatherModel;
+  @Output() searched = new EventEmitter<WeatherModel>();
   // @ViewChild('search', null)
   // public searchElementRef: ElementRef;
 
@@ -23,14 +24,19 @@ export class WeatherSearchComponent implements OnInit {
   }
 
   public async onClickHandler() {
-    await this.weatherService.getWeatherForCity(this.cityName).then(result => this.weatherModel = result).catch((error) => {
+    await this.weatherService.getWeatherForCity(this.cityName).then(result => this.weatherForecastEntity = result).catch((error) => {
       console.log(error)
     });
+    this.emitSearch();
   }
 
   public onTypeHandler(event) {
     const cityName = event.target.value;
     this.cityName = cityName;
+  }
+
+  emitSearch() {
+    this.searched.emit(this.weatherForecastEntity);
   }
 
   // private getPlaceAutocomplete() {

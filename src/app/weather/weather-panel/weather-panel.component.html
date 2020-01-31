@@ -1,6 +1,9 @@
 <div class="m-2">
-  <app-weather-search></app-weather-search>
+  <app-weather-search (searched)="onSearch($event)"></app-weather-search>
 </div>
 <div class="m-2">
-  <app-weather-history-panel></app-weather-history-panel>
+  <div class="flex d-flex flex-column">
+    <app-weather-forecast-widget [weatherDetails]="weatherForecast" [link]="link"></app-weather-forecast-widget>
+    <app-weather-history-panel></app-weather-history-panel>
+  </div>
 </div>
