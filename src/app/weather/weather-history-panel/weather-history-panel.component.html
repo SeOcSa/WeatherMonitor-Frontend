@@ -1,6 +1,8 @@
 <div class="card bg-dark">
-  <h5 class="card-title">History</h5>
+  <h5 class="card-title">Forecast History</h5>
   <div class="card-body">
-
+    <div *ngFor="let history of weatherHistory">
+      <app-weather-forecast-history-card [weatherForecast]="history"></app-weather-forecast-history-card>
+    </div>
   </div>
 </div>

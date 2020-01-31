@@ -9,11 +9,12 @@ import { WeatherHistoryPanelComponent } from './weather-history-panel/weather-hi
 import {
   WeatherForecastWidgetComponent,
 } from './weather-forecast-widget/weather-forecast-widget.component';
+import { WeatherForecastHistoryCardComponent } from './weather-forecast-history-card/weather-forecast-history-card.component';
 
 
 
 @NgModule({
-  declarations: [WeatherPanelComponent, WeatherSearchComponent, WeatherHistoryPanelComponent, WeatherForecastWidgetComponent],
+  declarations: [WeatherPanelComponent, WeatherSearchComponent, WeatherHistoryPanelComponent, WeatherForecastWidgetComponent, WeatherForecastHistoryCardComponent],
     exports: [
         WeatherPanelComponent
     ],

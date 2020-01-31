@@ -15,6 +15,4 @@ export class WeatherForecastWidgetComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
 }

@@ -1,9 +1,13 @@
-<div class="m-2">
-  <app-weather-search (searched)="onSearch($event)"></app-weather-search>
-</div>
-<div class="m-2">
-  <div class="flex d-flex flex-column">
-    <app-weather-forecast-widget [weatherDetails]="weatherForecast" [link]="link"></app-weather-forecast-widget>
-    <app-weather-history-panel></app-weather-history-panel>
+<div class="col">
+  <div class="col m-2">
+    <app-weather-search (searched)="onSearch($event)"></app-weather-search>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-weather-forecast-widget [weatherDetails]="weatherForecast" [link]="link"></app-weather-forecast-widget>
+    </div>
+    <div class="col">
+      <app-weather-history-panel></app-weather-history-panel>
+    </div>
   </div>
 </div>

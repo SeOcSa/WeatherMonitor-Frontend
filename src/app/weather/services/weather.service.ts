@@ -38,10 +38,18 @@ export class WeatherService {
     return this.http.get(url).pipe(catchError(this.handleError)) as Observable<WeatherModel[]>;
   }
 
+  private fetchLastWeatherForecastHistory() {
+    const url = `${this.getApiUrl()}weather/GetLastWeatherForecast`;
+    return this.http.get(url).pipe(catchError(this.handleError)) as Observable<WeatherModel>;
+  }
+
   public getWeatherForCity(city: string) {
     return this.fetchWeather(city).toPromise();
   }
   public getWeatherForecastHistory() {
     return this.fetchWeatherForecastHistory().toPromise();
+  }
+  public getLastWeatherForecastHistory() {
+    return this.fetchLastWeatherForecastHistory().toPromise();
   }
 }

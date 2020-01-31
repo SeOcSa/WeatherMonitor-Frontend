@@ -1,4 +1,4 @@
-<div class="wrapper" *ngIf="weatherDetails">
+<div class="wrapper">
   <div class="widget-container">
     <div class="top-left">
       <h1 class="city" id="city">{{weatherDetails.cityName}}, {{weatherDetails.country}}</h1>
@@ -8,7 +8,7 @@
       <p class="geo"></p>
     </div>
     <div class="top-right">
-      <h1 id="weather-status"></h1>
+      <h1 id="weather-status">{{weatherDetails.weatherCondition}} / {{weatherDetails.weatherConditionDetails}}</h1>
       <img class="weather-icon" src="{{link}}">
     </div>
     <div class="horizontal-half-divider"></div>
