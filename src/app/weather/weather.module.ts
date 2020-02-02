@@ -23,7 +23,7 @@ import { WeatherForecastHistoryCardComponent } from './weather-forecast-history-
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCj_leYN7pRCid58QtUgvUxgo9ks6_vSNg',
+      apiKey: '{APIKEY}',
       libraries: ['places']
     })
   ]
